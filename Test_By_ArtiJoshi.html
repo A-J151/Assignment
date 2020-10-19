@@ -1,0 +1,93 @@
+<html>
+	<head>
+		<style>
+		.OuterDiv 
+			{
+				font-size:18px;
+				font-family:Arial;
+				text-align:center;
+				width:60%;
+				background-color:lightblue;
+				margin-left: 20%;			
+			}
+			.TitleDiv
+			{
+				background-color:Navy;
+				color:white;
+				font-weight:bold;
+				border-radius: 63px;
+				font-size: 30px;
+				font-family:Arial;
+				text-align:center;
+			}
+			.MainDiv
+			{
+				width:80%;	
+				display:inline-block;
+				padding-bottom:3%;
+				font-weight:bold;
+				font-size:20px;
+				color:red;
+			}
+		
+			span{
+				font-weight:normal;
+				padding:0px;
+				margin:0px;
+				font-size:14px;
+			}
+		</style>		
+		<title>Item Details </title>
+		
+		
+	</head>
+	<body onload="myFunction()">
+
+			<div class="TitleDiv">
+				<h2>See Item Details:-<br/>
+				<sub><span>Socks Details</span></sub>
+				 </h2>
+			</div>
+		<div class="OuterDiv">
+			<div class="InnerDiv">
+				<h3>Total Socks Avaliable in Stock:</h3>
+				<span>
+				<div class="MainDiv" id="ttl_Socks">						
+				</div></span>
+			</div>
+			<div class="InnerDiv">
+				<h3>Total Pair of Socks:</h3>
+				<span><div class="MainDiv" id="MainDiv">	
+				</div></span>
+			</div>
+		</div>
+		<script>
+		debugger;
+			function myFunction()
+			{	
+				 pair=0,count=0;
+				 var colour=[ 10 ,10, 10,10, 20, 30, 30, 30, 30, 30, 30, 30, 40, 40, 40, 40, 40 ];
+				 dist = [...new Set(colour)];
+				 document.getElementById("ttl_Socks").innerHTML = colour.length;
+				 for (i = 0; i < dist.length; i++)
+				{
+					count = 0;
+					for(j=0;j<colour.length; j++)
+					{
+						if (dist[i] == colour[j])
+						{				
+							count+=1;
+							if(count%2==0)
+							{
+								pair+=1;
+							}
+						}
+					}
+				}
+					document.getElementById("MainDiv").innerHTML = pair;
+			}
+			
+		</script>
+	</body>
+</html>
+
